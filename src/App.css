@@ -1,0 +1,15 @@
+#shopping {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.product-div {
+  padding: 5px;
+  border: black 2px solid;
+  margin-top: 5px;
+}
+
+#product {
+  font-size: larger;
+}
