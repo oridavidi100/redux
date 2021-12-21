@@ -14,6 +14,18 @@ const products = [
 test('renders content', () => {
   // const Cartcomponent = render(<Cart />);
   const Salescomponent = render(<Sales store={store} />);
-
-  expect(Salescomponent.container).toHaveTextContent(<div>{products.map()}</div>);
+  const productList = Salescomponent.container.querySelector('.productList');
+  console.log(productList);
+  expect(productList).toBe(
+    products.map((product) => {
+      return (
+        <div key={product.id} className='product-div'>
+          <div>
+            {product.name} - ${product.price} x{product.quantity}
+          </div>
+          <button>Add to Cart</button>
+        </div>
+      );
+    })
+  );
 });

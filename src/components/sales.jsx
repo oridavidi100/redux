@@ -9,22 +9,24 @@ function Sales({ products, addToCart }) {
   return (
     <div>
       <p>sales</p>
-      {products.map((product) => {
-        return (
-          <div key={product.id} className='product-div'>
-            <div>
-              {product.name} - ${product.price} x{product.quantity}
+      <div className='productList'>
+        {products.map((product) => {
+          return (
+            <div key={product.id} className='product-div'>
+              <div>
+                {product.name} - ${product.price} x{product.quantity}
+              </div>
+              <button
+                type='button'
+                onClick={() => handleClick(product.id)}
+                disabled={product.quantity === 0 ? true : false}
+              >
+                Add to Cart
+              </button>
             </div>
-            <button
-              type='button'
-              onClick={() => handleClick(product.id)}
-              disabled={product.quantity === 0 ? true : false}
-            >
-              Add to Cart
-            </button>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
